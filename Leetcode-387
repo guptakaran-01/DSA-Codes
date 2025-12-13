@@ -1,0 +1,45 @@
+// Code in Cpp
+
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char,int>m;
+        for(int i=0 ; i<s.length(); i++){
+            m[s[i]]++;
+        }
+
+        for(int i=0 ; i<s.length(); i++){
+            if(m[s[i]]==1){
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+
+// code in JAVA
+
+class Solution {
+    public int firstUniqChar(String s) {
+        Map<Character,Integer> m=new HashMap<>();
+        for(int i=0 ; i<s.length(); i++){
+            char ch=s.charAt(i);
+            if(m.containsKey(ch)){
+                m.put(ch,m.get(ch)+1);
+            }else{
+                m.put(ch,1);
+            }
+
+        }
+
+         
+         for(int i=0 ; i<s.length(); i++){
+            char ch=s.charAt(i);
+            if(m.get(ch)==1){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+}
